@@ -4,9 +4,35 @@ public class Banco {
     static void main(String[] args) {
         Scanner teclado = new Scanner(System.in);
 
-        String nome;
-        double saldo = 1000, valor = 0;
+        String nome, testaConta, conta;
+        double saldo = 0, valor = 0;
         int op = 0;
+
+        System.out.println("******************************************************");
+        System.out.println("Criando sua conta:");
+
+        System.out.println("Digite seu nome: ");
+        nome = teclado.nextLine();
+
+        System.out.println("Digite sua conta: ");
+        testaConta = teclado.nextLine();
+
+        // Tratamento para o usuário digitar o tipo de conta.
+        if(testaConta.equals("corrente") || testaConta.equals("poupança")){
+            conta = testaConta;
+        }else{
+            while(!testaConta.equals("corrente") && !testaConta.equals("poupança")){
+                System.out.println("Digite um tipo de conta válida: ");
+                testaConta = teclado.nextLine();
+            }
+            conta = testaConta;
+            //System.out.println("O que tem: "+conta);
+        }
+
+        System.out.println("Valor do saldo inicial: ");
+        saldo = teclado.nextDouble();
+
+        System.out.println("******************************************************");
 
         String opcoes =
                 """
@@ -44,6 +70,5 @@ public class Banco {
         }while(op != 4);
 
         teclado.close();
-
     }
 }
