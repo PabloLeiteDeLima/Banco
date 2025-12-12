@@ -8,13 +8,12 @@ public class Banco {
         double saldo = 0, valor = 0;
         int op = 0;
 
-        System.out.println("******************************************************");
         System.out.println("Criando sua conta:");
 
-        System.out.println("Digite seu nome: ");
+        System.out.print("Digite seu nome: ");
         nome = teclado.nextLine();
 
-        System.out.println("Digite sua conta: ");
+        System.out.print("Digite sua conta: ");
         testaConta = teclado.nextLine();
 
         // Tratamento para o usuário digitar o tipo de conta.
@@ -29,8 +28,14 @@ public class Banco {
             //System.out.println("O que tem: "+conta);
         }
 
-        System.out.println("Valor do saldo inicial: ");
+        System.out.print("Valor do saldo inicial: ");
         saldo = teclado.nextDouble();
+
+        System.out.println("******************************************************");
+        System.out.println("Conta Criada com sucesso! ");
+        System.out.println("Nome: "+nome);
+        System.out.println("Tipo de conta: "+conta);
+        System.out.println("Saldo Inicial: "+saldo);
 
         System.out.println("******************************************************");
 
@@ -43,8 +48,8 @@ public class Banco {
                 4 - Sair
                 """;
         do{
-            System.out.println(opcoes);
-            System.out.println("Escolha uma opção: ");
+            System.out.print(opcoes);
+            System.out.print("Escolha uma opção: ");
             op = teclado.nextInt();
 
             if(op == 1){// Mostrar saldo
@@ -66,7 +71,7 @@ public class Banco {
             }else{
                 System.out.println("Opção Inválida!\nDigite uma opção válida... ");
             }
-
+            System.out.println();
         }while(op != 4);
 
         teclado.close();
